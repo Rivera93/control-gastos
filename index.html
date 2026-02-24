@@ -6,6 +6,9 @@
   <title>Control de Gastos</title>
   <link rel="stylesheet" href="css/estilos.css">
   <script src="js/chart.umd.js"></script>
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#3498db">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 </head>
 <body>
 
@@ -91,5 +94,14 @@
 <script src="js/firebase.js"></script>
 <script src="js/firestore.js"></script>
   <script src="js/app.js"></script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(reg => console.log('Service Worker registrado'))
+        .catch(err => console.log('Error:', err));
+    });
+  }
+</script>
 </body>
 </html>

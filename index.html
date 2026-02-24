@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control de Gastos</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/chart.umd.js"></script>
+</head>
+<body>
+
+  <div class="contenedor">
+    <div class="header">
+  <h1>💰 Control de Gastos</h1>
+  <button id="btn-modo-oscuro" onclick="toggleModoOscuro()">🌙</button>
+</div>
+
+    <div class="resumen">
+      <div class="tarjeta ingreso">
+        <p>Ingresos</p>
+        <h2 id="total-ingresos">$0.00</h2>
+      </div>
+      <div class="tarjeta gasto">
+        <p>Gastos</p>
+        <h2 id="total-gastos">$0.00</h2>
+      </div>
+      <div class="tarjeta balance">
+        <p>Balance</p>
+        <h2 id="balance">$0.00</h2>
+      </div>
+    </div>
+
+    <div class="formulario">
+      <input type="text" id="descripcion" placeholder="Descripción (ej: Supermercado)">
+      <input type="date" id="fecha-transaccion">
+      <textarea id="notas" placeholder="Notas adicionales (opcional)" rows="2"></textarea>
+      <input type="number" id="monto" placeholder="Monto (negativo para gastos)">
+      <select id="categoria" onchange="autoMonto()">
+        <option value="">-- Selecciona una categoría --</option>
+        <option value="comida">🍔 Comida</option>
+        <option value="transporte">🚗 Transporte</option>
+        <option value="entretenimiento">🎬 Entretenimiento</option>
+        <option value="salud">💊 Salud</option>
+        <option value="hogar">🏠 Hogar</option>
+        <option value="ropa">👕 Ropa</option>
+        <option value="ingreso">💰 Ingreso</option>
+        <option value="renta">💰 Renta</option>
+        <option value="otro">📦 Otro</option>
+      </select>
+      <button onclick="agregarTransaccion()">Agregar</button>
+    </div>
+
+    <div class="grafica-contenedor">
+      <h3 class="seccion-titulo" onclick="toggleSeccion('grafica-cuerpo')">
+        Gastos por categoría <span id="icono-grafica">▼</span>
+      </h3>
+      <div id="grafica-cuerpo">
+        <canvas id="grafica"></canvas>
+      </div>
+    </div>
+
+    <div class="resumen-mensual">
+      <h3 class="seccion-titulo" onclick="toggleSeccion('mensual-cuerpo')">
+        Resumen mensual <span id="icono-mensual">▼</span>
+      </h3>
+      <div id="mensual-cuerpo">
+        <div id="tabla-mensual"></div>
+      </div>
+    </div>
+
+    <div class="transacciones-contenedor">
+      <h3 class="seccion-titulo" onclick="toggleSeccion('transacciones-cuerpo')">
+        Transacciones <span id="icono-transacciones">▼</span>
+      </h3>
+      <div id="transacciones-cuerpo">
+        <div class="filtros">
+          <input type="date" id="fecha-inicio">
+          <span>hasta</span>
+          <input type="date" id="fecha-fin">
+          <button onclick="filtrar()">Filtrar</button>
+          <button onclick="limpiarFiltro()">Ver todo</button>
+        </div>
+        <ul id="lista-transacciones"></ul>
+      </div>
+    </div>
+
+  </div>
+  <script src="js/firebase.js"></script>
+<script src="js/firestore.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/firebase.js"></script>
+<script src="js/firestore.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f0f2f5;
+  padding: 20px;
+}
+
+.contenedor {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.resumen {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tarjeta {
+  flex: 1;
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.tarjeta p { font-size: 13px; color: #888; }
+.tarjeta h2 { font-size: 18px; margin-top: 5px; }
+.ingreso h2 { color: #2ecc71; }
+.gasto h2   { color: #e74c3c; }
+.balance h2 { color: #3498db; }
+
+.formulario {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.formulario input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.formulario button {
+  padding: 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.formulario button:hover { background-color: #2980b9; }
+
+h3 { margin-bottom: 10px; color: #555; }
+
+.transacciones-contenedor {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+#lista-transacciones {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#lista-transacciones li {
+  background: white;
+  padding: 12px 15px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  border-left: 5px solid #ddd;
+}
+
+.li-ingreso { border-left-color: #2ecc71 !important; }
+.li-gasto   { border-left-color: #e74c3c !important; }
+
+.monto-ingreso { color: #2ecc71; font-weight: bold; }
+.monto-gasto   { color: #e74c3c; font-weight: bold; }
+
+.btn-eliminar {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 18px;
+  cursor: pointer;
+}
+.btn-eliminar:hover { color: #e74c3c; }
+
+.formulario select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  background: white;
+  cursor: pointer;
+}
+
+.categoria-badge {
+  font-size: 12px;
+  background: #f0f2f5;
+  padding: 3px 8px;
+  border-radius: 20px;
+  color: #666;
+}
+
+.filtros {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.filtros input[type="date"] {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  flex: 1;
+}
+
+.filtros span {
+  color: #888;
+  font-size: 14px;
+}
+
+.filtros button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.filtros button:first-of-type {
+  background-color: #3498db;
+  color: white;
+}
+
+.filtros button:last-of-type {
+  background-color: #eee;
+  color: #555;
+}
+
+.fecha-transaccion {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.grafica-contenedor {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.grafica-contenedor h3 {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.sin-transacciones {
+  text-align: center;
+  color: #aaa;
+  font-size: 15px;
+  padding: 20px 0;
+}
+
+.formulario textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  resize: none;
+  font-family: Arial, sans-serif;
+}
+
+.notas-texto {
+  color: #aaa;
+  font-size: 12px;
+}
+.resumen-mensual {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.resumen-mensual h3 {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.mes-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f2f5;
+  font-size: 14px;
+}
+
+.mes-item:last-child {
+  border-bottom: none;
+}
+
+.mes-nombre {
+  color: #555;
+  font-weight: bold;
+  width: 80px;
+}
+
+.mes-ingreso { color: #2ecc71; }
+.mes-gasto { color: #e74c3c; }
+.mes-balance-pos { color: #2ecc71; font-weight: bold; }
+.mes-balance-neg { color: #e74c3c; font-weight: bold; }
+
+.seccion-titulo {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.seccion-titulo:hover {
+  color: #3498db;
+}
+
+.seccion-oculta {
+  display: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin-bottom: 0;
+}
+
+#btn-modo-oscuro {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+body.oscuro {
+  background-color: #1a1a2e;
+  color: #eee;
+}
+
+body.oscuro .tarjeta,
+body.oscuro .formulario,
+body.oscuro .grafica-contenedor,
+body.oscuro .resumen-mensual,
+body.oscuro .transacciones-contenedor {
+  background-color: #16213e;
+  color: #eee;
+}
+
+body.oscuro input,
+body.oscuro select,
+body.oscuro textarea {
+  background-color: #0f3460;
+  border-color: #444;
+  color: #eee;
+}
+
+body.oscuro #lista-transacciones li {
+  background-color: #16213e;
+  color: #eee;
+}
+
+body.oscuro .filtros button:last-of-type {
+  background-color: #0f3460;
+  color: #eee;
+}
+
+body.oscuro .mes-item {
+  border-bottom-color: #0f3460;
+}
+
+body.oscuro #btn-modo-oscuro {
+  border-color: #444;
+}
